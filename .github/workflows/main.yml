@@ -35,6 +35,9 @@ jobs:
         run: |
           docker build . -t rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
           docker push rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
+          
+      - name: Maven Build and Publish to Azure Artifacts
+        run: mvn clean deploy -s settings.xml 
 
 
 
