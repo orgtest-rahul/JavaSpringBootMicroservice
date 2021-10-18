@@ -17,6 +17,34 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+	<distributionManagement>
+    		<repository>
+                  <id>rahulartifactfeed</id>
+                  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed/maven/v1</url>
+                  <releases>
+                    <enabled>true</enabled>
+                  </releases>
+                  <snapshots>
+                    <enabled>true</enabled>
+                  </snapshots>
+                </repository>   
+	</distributionManagement> 
+	
+	 <repositories>
+      		 <repository>
+			  <id>rahulartifactfeed</id>
+			  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed/maven/v1</url>
+			  <releases>
+			    <enabled>true</enabled>
+			  </releases>
+			  <snapshots>
+			    <enabled>true</enabled>
+			  </snapshots>
+                </repository>        
+  	</repositories>
+	
+	
 
 	<dependencies>
 		<dependency>
