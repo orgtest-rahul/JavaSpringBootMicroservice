@@ -24,17 +24,17 @@ jobs:
       - name: Step 2 - build with maven
         run: mvn -B package --file pom.xml
 
-      - name: step-3 ACR login
-        uses: azure/docker-login@v1
-        with:
-          login-server: rahultestwebapp04acr.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+      # - name: step-3 ACR login
+      #   uses: azure/docker-login@v1
+      #   with:
+      #     login-server: rahultestwebapp04acr.azurecr.io
+      #     username: ${{ secrets.ACR_USERNAME }}
+      #     password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Step 4 - Docker build and push to ACR
-        run: |
-          docker build . -t rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
-          docker push rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
+      # - name: Step 4 - Docker build and push to ACR
+      #   run: |
+      #     docker build . -t rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
+      #     docker push rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
           
       - name: Maven Build and Publish to Azure Artifacts
         run: mvn clean deploy -s settings.xml 
@@ -42,7 +42,7 @@ jobs:
       - name: Step 5 Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
-         # Specify the Az PowerShell script here.
+         
          inlineScript: |
            $url="${{secrets.AZURE_ARTIFACTS_PACKAGE_URL}}"
            $token=[System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":${{secrets.AZUREDEVOPS_PAT}}"))
