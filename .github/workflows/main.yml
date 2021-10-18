@@ -21,23 +21,36 @@ jobs:
         with:
           java-version: '11'          
           
-      - name: Step 8 - build with maven
+      - name: Step 2 - build with maven
         run: mvn -B package --file pom.xml
 
-      - name: step-9 ACR login
+      - name: step-3 ACR login
         uses: azure/docker-login@v1
         with:
           login-server: rahultestwebapp04acr.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Step 10 - Docker build and push to ACR
+      - name: Step 4 - Docker build and push to ACR
         run: |
           docker build . -t rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
           docker push rahultestwebapp04acr.azurecr.io/spring-boot-docker.jar:latest
           
       - name: Maven Build and Publish to Azure Artifacts
         run: mvn clean deploy -s settings.xml 
+        
+      - name: Step 5 Azure PowerShell Action
+        uses: Azure/powershell@v1
+        with:
+         # Specify the Az PowerShell script here.
+         inlineScript: |
+           $url="${{secrets.AZURE_ARTIFACTS_PACKAGE_URL}}"
+           $token=[System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":${{secrets.AZUREDEVOPS_PAT}}"))
+           $header=@{authorization="Basic $token"}
+           Invoke-RestMethod -Uri $url -Method Get -ContentType "application/json" -Headers $header -OutFile JavaSpringBootMicroservice
+           dir
+         # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+         azPSVersion: 2.8.0 
 
 
 
