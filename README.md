@@ -1,4 +1,4 @@
-# Java Microservice app based 
+# Java Microservice app
 
 Buil Status -- [![Build and deploy Java app to ACR](https://github.com/orgtest-rahul/JavaSpringBootHello/actions/workflows/main.yml/badge.svg)](https://github.com/orgtest-rahul/JavaSpringBootHello/actions/workflows/main.yml)
 
