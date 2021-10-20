@@ -4,7 +4,7 @@
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>rahulartifactfeed</id>
+      <id>rahulartifactfeed2</id>
       <username>July2021</username>
       <password>36sevh4p5talseurldo3qozmbev4jtlu7ellhding5bqtvygbmiq</password>
     </server>
