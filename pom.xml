@@ -20,8 +20,8 @@
 	
 	<distributionManagement>
     		<repository>
-                  <id>rahulartifactfeed</id>
-                  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed/maven/v1</url>
+                  <id>rahulartifactfeed2</id>
+                  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed2/maven/v1</url>
                   <releases>
                     <enabled>true</enabled>
                   </releases>
@@ -33,8 +33,8 @@
 	
 	 <repositories>
       		 <repository>
-			  <id>rahulartifactfeed</id>
-			  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed/maven/v1</url>
+			  <id>rahulartifactfeed2</id>
+			  <url>https://pkgs.dev.azure.com/July2021/TerraformSample/_packaging/rahulartifactfeed2/maven/v1</url>
 			  <releases>
 			    <enabled>true</enabled>
 			  </releases>
