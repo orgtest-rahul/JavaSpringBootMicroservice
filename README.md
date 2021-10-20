@@ -1,7 +1,5 @@
 # Java Microservice app
 
-URL -- https://rahultestwebapp08.azurewebsites.net/message
-
 
 # Dockerize Application steps
 * $ docker build -t spring-boot-docker.jar .
